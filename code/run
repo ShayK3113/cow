@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -ex
+
+animal=$(cat '../data/animal')
+format=""
+if [[ -z "$animal" ]]
+then
+    animal=cow
+else
+    format="-f $animal"
+fi
+
+p=../results/$animal
+
+echo "Pipleine $animal is ready to run..." > $p
+/usr/games/cowsay $format MOOOOOOOOOooooooo >> $p
+echo "Success!" >> $p
